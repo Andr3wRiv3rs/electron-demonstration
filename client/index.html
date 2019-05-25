@@ -6,9 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>electron-demonstration</title>
     <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    
+    <div id="title-bar-pad">
+
+    </div>
+
+    <div id="title-bar">
+        <p>electron-demonstration</p>
+        <div 
+            id="tb-min" 
+            @click="currentWindow.minimize()"
+        ><span></span></div>
+
+        <div 
+            id="tb-max" 
+            @click="
+                currentWindow.isMaximized() 
+                    ? currentWindow.unmaximize() 
+                    : currentWindow.maximize()
+            "
+        ><span></span></div>
+
+        <div 
+            id="tb-exit" 
+            @click="currentWindow.close()"
+        ></div>
+
+        <div id="bounds">
+            <p v-for="key of Object.keys(bounds)">
+                {{`${key}: ${bounds[key]}`}}
+            </p>
+        </div>
+    </div>
+
+    <div id="main">
+        <div>
+            <h1>Custom Protocol</h1>
+            <h3>Open this app.</h3>
+            <p>Paste this URL into your browser.</p>
+            <code>electron-demonstration://test</code>
+
+
+            <h3>Open another app.</h3>
+            <a href="discord://">
+                <button>Open Discord</button>
+            </a>
+        </div>
+
+        <div>
+            <h3>Modal + Form</h3>
+            <button @click="formActive = true">Open Form</button>
+            <div class="form" v-show="formActive" @click="formActive = false">
+                <div class="inner" @click.stop>
+                    <div 
+                        class="close" 
+                        @click="formActive = false"
+                    ></div>
+
+                    <br />
+
+                    <input 
+                        v-model="formText" 
+                    />
+
+                    <br />
+
+                    <button 
+                        @click="popup(formText)"
+                    >{{`Alert ${formText}`}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
