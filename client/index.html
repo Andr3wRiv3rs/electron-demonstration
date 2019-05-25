@@ -55,8 +55,11 @@
             </a>
         </div>
 
+        <br />
+        <br />
+
         <div>
-            <h3>Modal + Form</h3>
+            <h1>Modal + Form</h1>
             <button @click="formActive = true">Open Form</button>
             <div class="form" v-show="formActive" @click="formActive = false">
                 <div class="inner" @click.stop>
@@ -77,6 +80,17 @@
                         @click="popup(formText)"
                     >{{`Alert ${formText}`}}</button>
                 </div>
+            </div>
+        </div>
+
+        <br />
+        <br />
+
+        <div>
+            <h1>3D Model (three.js)</h1>
+            <p>Drag the cube around the screen.</p>
+            <div id="threejs">
+
             </div>
         </div>
     </div>

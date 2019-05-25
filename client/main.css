@@ -4,6 +4,7 @@ body, html {
   color: #f0f0f0;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 h3 {
@@ -20,7 +21,7 @@ button {
 }
 
 #title-bar-pad {
-  height: 4px;
+  height: 30px;
   position: fixed;
   width: 100vw;
   background-color: #232328;
@@ -36,11 +37,11 @@ button {
   align-items: center;
   margin: 0;
   padding: 0;
-  padding-left: 0.5em;
+  padding-left: calc(0.5em - 4px);
   padding-bottom: 4px;
-  width: calc(100vw - 120px);
+  width: calc(100vw - 124px);
   top: 4px;
-  left: 0;
+  left: 4px;
   background-color: #232328;
   -webkit-user-select: none;
   -webkit-app-region: drag;
@@ -61,7 +62,7 @@ button {
   align-items: center;
   justify-content: center;
   padding: 0;
-  cursor: pointer;
+  cursor: default;
 }
 #title-bar #tb-min:hover, #title-bar #tb-max:hover, #title-bar #tb-exit:hover {
   background-color: #464646;
@@ -193,6 +194,25 @@ input:focus, button:focus {
 }
 .form .close:hover {
   background-color: #ff5082;
+}
+
+#threejs {
+  width: 20em;
+  height: 20em;
+  background-color: #232328;
+}
+#threejs canvas {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #232328;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f0f0f0;
 }
 
 /*# sourceMappingURL=main.css.map */

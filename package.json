@@ -7,16 +7,17 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "watch": "sass --watch client/main.sass:client/main.css",  
+    "watch": "sass --watch client/main.sass:client/main.css",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
   "dependencies": {
-    "sass": "^1.20.1"
+    "sass": "^1.20.1",
+    "three": "^0.104.0"
   },
   "devDependencies": {
-    "electron-builder": "^20.40.2",
-    "electron": "^5.0.2"
+    "electron": "^5.0.2",
+    "electron-builder": "^20.40.2"
   },
   "build": {
     "appId": "dev.poisonapple.electron"
