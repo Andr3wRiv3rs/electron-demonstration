@@ -152,7 +152,6 @@ input:focus, button:focus {
   box-sizing: border-box;
   padding: 2em;
   margin-top: 30px;
-  padding-bottom: 8em;
 }
 
 .form {
@@ -208,11 +207,32 @@ input:focus, button:focus {
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
-  background-color: #232328;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
+  background: rgba(240, 240, 240, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
   background: #f0f0f0;
+}
+
+br ~ br {
+  line-height: 2em;
+}
+
+#networking video, #networking .video_off, #networking iframe {
+  width: 20em;
+  height: 20em;
+  background-color: #232328;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  margin-bottom: 10px;
+}
+#networking button {
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=main.css.map */

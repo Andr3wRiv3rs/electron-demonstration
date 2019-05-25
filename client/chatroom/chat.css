@@ -1,0 +1,23 @@
+body, html {
+    background-color: white;
+}
+
+input, button {
+    position: fixed;
+    width: 80vw;
+    bottom: 0;
+    left: 0;
+    display: block;
+}
+
+button {
+    width: 20vw;
+    right: 0;
+    left: auto;
+}
+
+
+#log {
+    height: 95vh;
+    overflow: auto;
+}

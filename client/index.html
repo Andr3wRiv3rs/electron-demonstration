@@ -34,11 +34,8 @@
             @click="currentWindow.close()"
         ></div>
 
-        <div id="bounds">
-            <p v-for="key of Object.keys(bounds)">
-                {{`${key}: ${bounds[key]}`}}
-            </p>
-        </div>
+        <!-- <div id="bounds">
+        </div> -->
     </div>
 
     <div id="main">
@@ -48,6 +45,7 @@
             <p>Paste this URL into your browser.</p>
             <code>electron-demonstration://test</code>
 
+            <br /><br />
 
             <h3>Open another app.</h3>
             <a href="discord://">
@@ -86,13 +84,22 @@
         <br />
         <br />
 
-        <div>
-            <h1>3D Model (three.js)</h1>
-            <p>Drag the cube around the screen.</p>
-            <div id="threejs">
+        <three></three>
 
-            </div>
+        <br />
+        <br />
+
+        <div>
+            <h1>Bounds</h1>
+            <p v-for="key of Object.keys(bounds)">
+                <span style="font-weight: bold;">{{key}}:</span> {{bounds[key]}}
+            </p>
         </div>
+
+        <br />
+        <br />
+
+        <networking></networking>
     </div>
 
     <script src="main.js"></script>

@@ -150,7 +150,6 @@ input,button
     box-sizing: border-box
     padding: 2em
     margin-top: 30px
-    padding-bottom: 8em
 
 .form
     width: 100%
@@ -203,7 +202,27 @@ input,button
 ::-webkit-scrollbar 
     width: 10px
     height: 10px
-    background-color: $darkgray
+    background-color: transparent
     
 ::-webkit-scrollbar-thumb
-    background: $white
+    background: rgba($white, 0.2)
+
+    &:hover
+        background: rgba($white, 1)
+
+br ~ br
+    line-height: 2em
+
+#networking
+    video, .video_off, iframe
+        width: 20em
+        height: 20em
+        background-color: $darkgray
+        display: flex
+        justify-content: center
+        align-items: center
+        border: none
+        margin-bottom: 10px
+
+    button
+        margin-bottom: 10px
