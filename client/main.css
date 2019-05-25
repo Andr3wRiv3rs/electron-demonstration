@@ -235,4 +235,9 @@ br ~ br {
   margin-bottom: 10px;
 }
 
+textarea {
+  width: 20em;
+  height: 20em;
+}
+
 /*# sourceMappingURL=main.css.map */

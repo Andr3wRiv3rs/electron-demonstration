@@ -12,6 +12,7 @@ module.exports = new Vue({
     components: {
         three: require('./three'),
         networking: require('./networking'),
+        saving: require('./saving'),
     },
 
     data () {
