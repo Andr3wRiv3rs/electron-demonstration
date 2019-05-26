@@ -39,18 +39,17 @@
   background-color: #ff5082;
 }
 
-#networking video, #networking .video_off, #networking iframe {
+#networking iframe {
   width: 20em;
   height: 20em;
-  background-color: #232328;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border: none;
   margin-bottom: 10px;
 }
 #networking button {
   margin-bottom: 10px;
+}
+#networking iframe {
+  display: inline-block;
 }
 
 textarea {
@@ -83,10 +82,10 @@ textarea {
 #title-bar-pad {
   height: 50px;
   position: fixed;
-  width: calc(100vw - 70px);
+  width: calc(100vw - 15em - 70px);
   background-color: transparent;
   top: 0;
-  left: 0;
+  left: 15em;
 }
 
 #title-bar {
@@ -109,7 +108,7 @@ textarea {
   z-index: 1;
 }
 #title-bar p {
-  margin-right: 50px;
+  margin-left: 50px;
 }
 #title-bar #hamburger {
   width: 50px;
@@ -197,6 +196,54 @@ textarea {
   transform: rotate(-45deg);
 }
 
+#sidebar {
+  width: 10em;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+#sidebar div {
+  padding: 0.5em 1em;
+  color: #ff5082;
+  border-right: 3px solid #ff5082;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#sidebar div.active {
+  color: #f0f0f0;
+  border-color: #f0f0f0;
+}
+#sidebar div a {
+  text-decoration: none;
+  font-size: 1em;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  font-weight: bold;
+}
+
+#usermedia video, #usermedia .video_off {
+  width: 30em;
+  background-color: #232328;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  margin-bottom: 10px;
+}
+#usermedia .video_off {
+  height: 25em;
+}
+#usermedia button {
+  margin-bottom: 10px;
+}
+
 body, html {
   font-family: sans-serif;
   color: #f0f0f0;
@@ -217,13 +264,11 @@ code {
 
 button {
   cursor: pointer;
-}
-
-button {
   background-color: transparent;
   border: 1px solid #f0f0f0;
   padding: 1em;
   color: #f0f0f0;
+  border-radius: 5em;
 }
 button:hover {
   background-color: #f0f0f0;
@@ -244,11 +289,12 @@ input:focus, button:focus {
   overflow: auto;
   height: calc(100vh - 50px);
   margin-top: 50px;
-  width: calc(100% - 70px);
+  width: calc(100% - 10em - 70px);
   background-color: transparent;
   box-sizing: border-box;
   padding: 2em;
-  padding-top: 0.8em;
+  padding-top: 0;
+  margin-left: 10em;
 }
 
 br ~ br {

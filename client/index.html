@@ -38,17 +38,30 @@
             id="tb-exit" 
             @click="currentWindow.close()"
         ></div>
-
-        <!-- <div id="bounds">
-        </div> -->
-    </div>
-
-    <div id="sidebar">
-
     </div>
 
     <div id="main">
-        <div v-if="page === 'protocol'">
+        <div id="sidebar">
+            <div 
+                v-for="i in [
+                    'protocol',
+                    'form',
+                    '3D',
+                    'networking',
+                    'saving',
+                    'User Media'
+                ]"
+                @click="setPage(i)"
+                href="#"
+                :class="i === page ? 'active' : ''"
+            >
+                <a>{{
+                    i.replace(/^./,i[0].toUpperCase())    
+                }}</a>
+            </div>
+        </div>
+
+        <div v-show="page === 'protocol'">
             <h1>Custom Protocol</h1>
             <h3>Open this app.</h3>
             <p>Paste this URL into your browser.</p>
@@ -62,7 +75,7 @@
             </a>
         </div>
 
-        <div v-if="page === 'form'">
+        <div v-show="page === 'form'">
             <h1>Modal + Form</h1>
             <button @click="formActive = true">Open Form</button>
             <div class="form" v-show="formActive" @click="formActive = false">
@@ -87,18 +100,24 @@
             </div>
         </div>
 
-        <three v-if="page === 'three'"></three>
+        <three 
+            v-show="page === '3D'" 
+            :page="page" 
+            :bounds="bounds" 
+        ></three>
 
-        <div v-if="page === 'bounds'">
+        <div v-show="page === 'bounds'">
             <h1>Bounds</h1>
             <p v-for="key of Object.keys(bounds)">
                 <span style="font-weight: bold;">{{key}}:</span> {{bounds[key]}}
             </p>
         </div>
 
-        <networking v-if="page === 'networking'"></networking>
+        <networking v-show="page === 'networking'"></networking>
 
-        <saving v-if="page === 'saving'"></saving>
+        <saving v-show="page === 'saving'"></saving>
+
+        <usermedia v-show="page === 'User Media'"></usermedia>
     </div>
 
     <script src="app.js"></script>

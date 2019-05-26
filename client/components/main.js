@@ -13,6 +13,7 @@ module.exports = new Vue({
         three: require('./three'),
         networking: require('./networking'),
         saving: require('./saving'),
+        usermedia: require('./usermedia'),
     },
 
     data () {
@@ -20,13 +21,18 @@ module.exports = new Vue({
             formActive: false,
             formText: 'Hello World!',
             bounds: currentWindow.getBounds(),
-            page: 'protocol'
+            page: 'protocol',
+            currentWindow
         }
     },
 
     methods: {
         popup (text) {
             alert(text)
+        },
+
+        setPage (page) {
+            Vue.set(this, 'page', page)
         }
     },
 

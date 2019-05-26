@@ -21,7 +21,7 @@ module.exports = Vue.component('cube', {
         const ambient = new AmbientLight( 0x303030 )
         const sun = new DirectionalLight( 0xE0D5FF, 1 )
         const cube = new Mesh( 
-            new BoxGeometry( 2, 2, 2 ), 
+            new BoxGeometry( 2.9, 2.9, 2.9 ), 
             new MeshLambertMaterial({
                 color: 0xffffff
             })
