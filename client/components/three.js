@@ -67,12 +67,10 @@ module.exports = Vue.component('three', {
     methods: {
         createTXT () {
             fs.writeFileSync(
-                require('path').join(require('os').homedir(), 'Desktop') + (process.APPDATA ? '/' : '\\') + 'outofbounds.txt',
+                require('path').join(require('os').homedir(), 'Desktop\\') + 'outofbounds.txt',
                 'You moved the cube out of bounds!',
                 { encoding: 'utf8' }
             )
-
-            console.log(require('path').join(require('os').homedir(), 'Desktop') + (process.APPDATA ? '/' : '\\') + 'outofbounds.txt')
         }
     },
 

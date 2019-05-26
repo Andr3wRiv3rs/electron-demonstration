@@ -4,7 +4,6 @@
   "main": "index.js",
   "repository": "https://github.com/Andr3wRiv3rs/electron-demonstration.git",
   "author": "Andr3wRiv3rs <andrewarivers@gmail.com>",
-  "license": "MIT",
   "scripts": {
     "start": "electron --enable-transparent-visuals .",
     "watch": "sass --watch client/main.sass:client/main.css",
