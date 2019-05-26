@@ -1,0 +1,116 @@
+#title-bar-pad
+    height: 50px
+    position: fixed
+    width: calc(100vw - 70px)
+    background-color: transparent
+    top: 0
+    left: 0
+
+#title-bar
+    height: 46px
+    position: fixed
+    box-sizing: border-box
+    display: flex
+    align-items: center
+    justify-content: center
+    margin: 0
+    padding: 0
+    padding-left: calc(0.5em - 4px)
+    padding-bottom: 4px
+    width: calc(100vw - 124px)
+    top: 4px
+    left: 54px
+    background-color: transparent
+    -webkit-user-select: none
+    -webkit-app-region: drag
+    z-index: 1
+
+    p
+        margin-right: 50px
+
+    #hamburger
+        width: 50px
+        height: 50px
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        cursor: pointer
+        position: fixed
+        left: 0
+        top: 0
+        padding-left: 3px
+
+        span
+            display: inline-block
+            height: 4px
+            width: 36px
+            background-color: $white
+            margin: 4px 0
+            pointer-events: none
+            
+
+    #tb-min, #tb-max, #tb-exit
+        width: 50px
+        height: 50px
+        border-radius: 50px
+        margin: 0
+        border: none
+        background-color: $darkgray
+        position: fixed
+        top: 10px
+        right: 0
+        display: flex
+        align-items: center
+        justify-content: center
+        padding: 0
+        cursor: pointer
+        right: 10px
+
+        &:hover
+            background-color: rgb(65,65,80)
+
+        span
+            pointer-events: none
+
+    #tb-min
+        top: 120px
+
+        span
+            border-bottom: 1px solid $white
+            width: 15px
+
+    #tb-max
+        top: 65px
+
+        span
+            width: 11px
+            height: 11px
+            border: 1px solid $white
+
+    #tb-exit
+        &:hover
+            background-color: $red
+
+#tb-exit, .close
+
+    span
+        height: 20px
+        transform: rotate(45deg)
+        border-left: 1px solid $white
+        image-rendering: pixelated
+
+    span:nth-child(2)
+        transform: rotate(-45deg)
+
+    &:before, &:after
+        position: absolute
+        content: ' '
+        height: 15px
+        width: 1px
+        background-color: white
+
+    &:before
+        transform: rotate(45deg)
+    &:after
+        transform: rotate(-45deg)

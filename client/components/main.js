@@ -20,6 +20,7 @@ module.exports = new Vue({
             formActive: false,
             formText: 'Hello World!',
             bounds: currentWindow.getBounds(),
+            page: 'protocol'
         }
     },
 

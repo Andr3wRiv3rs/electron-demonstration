@@ -6,15 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>electron-demonstration</title>
     <link rel="stylesheet" href="main.css" />
-    <script src="vue.js"></script>
+    <script src="vue.min.js"></script>
 </head>
 <body>
-    <div id="title-bar-pad">
-
-    </div>
+    <div id="title-bar-pad"></div>
 
     <div id="title-bar">
-        <!-- <p>electron-demonstration</p> -->
+        <p>electron-demonstration</p>
+
+        <!-- <div id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div> -->
+
         <div 
             id="tb-min" 
             @click="currentWindow.minimize()"
@@ -38,8 +43,12 @@
         </div> -->
     </div>
 
+    <div id="sidebar">
+
+    </div>
+
     <div id="main">
-        <div>
+        <div v-if="page === 'protocol'">
             <h1>Custom Protocol</h1>
             <h3>Open this app.</h3>
             <p>Paste this URL into your browser.</p>
@@ -53,10 +62,7 @@
             </a>
         </div>
 
-        <br />
-        <br />
-
-        <div>
+        <div v-if="page === 'form'">
             <h1>Modal + Form</h1>
             <button @click="formActive = true">Open Form</button>
             <div class="form" v-show="formActive" @click="formActive = false">
@@ -81,30 +87,18 @@
             </div>
         </div>
 
-        <br />
-        <br />
+        <three v-if="page === 'three'"></three>
 
-        <!-- <three></three>
-
-        <br />
-        <br /> -->
-
-        <div>
+        <div v-if="page === 'bounds'">
             <h1>Bounds</h1>
             <p v-for="key of Object.keys(bounds)">
                 <span style="font-weight: bold;">{{key}}:</span> {{bounds[key]}}
             </p>
         </div>
 
-        <br />
-        <br />
+        <networking v-if="page === 'networking'"></networking>
 
-        <networking></networking>
-
-        <br />
-        <br />
-
-        <saving></saving>
+        <saving v-if="page === 'saving'"></saving>
     </div>
 
     <script src="app.js"></script>
