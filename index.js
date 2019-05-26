@@ -13,16 +13,20 @@ const createWindow = () => {
         minWidth: 300, 
         minHeight: 300, 
         frame: false,
+        transparent: true,
         webPreferences: {
             nodeIntegration: true
         }
     })
 
+    mainWindow.show()
+
     mainWindow.loadFile('./client/index.html')
     mainWindow.maximize()
     mainWindow.on('closed', () => mainWindow = null)
     
-    if (process.env.DEV) mainWindow.webContents.openDevTools()
+    // if (process.env.DEV) mainWindow.webContents.openDevTools()
+    
 }
 
 app.on('ready', createWindow)

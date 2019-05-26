@@ -6,7 +6,7 @@
   "author": "Andr3wRiv3rs <andrewarivers@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "electron .",
+    "start": "electron --enable-transparent-visuals .",
     "watch": "sass --watch client/main.sass:client/main.css",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
