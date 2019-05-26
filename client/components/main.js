@@ -6,6 +6,8 @@ const {
 
 const currentWindow = getCurrentWindow()
 
+const theme = require('./theme')
+
 module.exports = new Vue({
     el: '#main',
     
@@ -14,6 +16,7 @@ module.exports = new Vue({
         networking: require('./networking'),
         saving: require('./saving'),
         usermedia: require('./usermedia'),
+        graph: require('./graph'),
     },
 
     data () {
@@ -22,7 +25,13 @@ module.exports = new Vue({
             formText: 'Hello World!',
             bounds: currentWindow.getBounds(),
             page: 'protocol',
-            currentWindow
+            currentWindow,
+
+            styles: {
+                color: theme.colors.text,
+                backgroundColor: theme.colors.bg1,
+                borderColor: theme.colors.text
+            },
         }
     },
 

@@ -9,16 +9,8 @@
     <script src="vue.min.js"></script>
 </head>
 <body>
-    <div id="title-bar-pad"></div>
-
     <div id="title-bar">
         <p>electron-demonstration</p>
-
-        <!-- <div id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div> -->
 
         <div 
             id="tb-min" 
@@ -40,7 +32,7 @@
         ></div>
     </div>
 
-    <div id="main">
+    <div id="main" :style="styles">
         <div id="sidebar">
             <div 
                 v-for="i in [
@@ -49,7 +41,8 @@
                     '3D',
                     'networking',
                     'saving',
-                    'User Media'
+                    'User Media',
+                    'graph',
                 ]"
                 @click="setPage(i)"
                 href="#"
@@ -118,6 +111,8 @@
         <saving v-show="page === 'saving'"></saving>
 
         <usermedia v-show="page === 'User Media'"></usermedia>
+
+        <graph v-if="page === 'graph'"></graph>
     </div>
 
     <script src="app.js"></script>

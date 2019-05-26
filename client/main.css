@@ -244,6 +244,11 @@ textarea {
   margin-bottom: 10px;
 }
 
+#graph .core {
+  display: inline-block;
+  margin-right: 4px;
+}
+
 body, html {
   font-family: sans-serif;
   color: #f0f0f0;
