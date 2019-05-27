@@ -1,6 +1,6 @@
 {
   "name": "electron-demonstration",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "repository": "https://github.com/Andr3wRiv3rs/electron-demonstration.git",
   "author": "Andr3wRiv3rs <andrewarivers@gmail.com>",
