@@ -11,16 +11,19 @@
 
     div
         padding: 0.5em 1em
-        color: $red
-        border-right: 3px solid $red
         cursor: pointer
         display: flex
         align-items: center
         justify-content: center
+        color: var(--text)
+        border-right: 3px solid transparent
+        border-color: var(--text)
+        opacity: 0.9
 
         &.active
-            color: $white
-            border-color: $white
+            color: var(--accent1)
+            border-color: var(--accent1)
+            opacity: 1
 
         a
             text-decoration: none

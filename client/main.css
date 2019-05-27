@@ -1,10 +1,10 @@
 .form {
-  width: calc(100vw - 70px);
+  width: calc(100vw - 70px - 10em);
   height: calc(100vh - 50px);
   background-color: rgba(35, 35, 40, 0.5);
   position: fixed;
   top: 50px;
-  left: 0;
+  left: 10em;
   bottom: 0;
   overflow: hidden;
 }
@@ -82,10 +82,10 @@ textarea {
 #title-bar-pad {
   height: 50px;
   position: fixed;
-  width: calc(100vw - 15em - 70px);
-  background-color: transparent;
+  width: calc(100vw - 10em - 70px);
   top: 0;
-  left: 15em;
+  left: 10em;
+  z-index: -1;
 }
 
 #title-bar {
@@ -106,6 +106,7 @@ textarea {
   -webkit-user-select: none;
   -webkit-app-region: drag;
   z-index: 1;
+  color: var(--text);
 }
 #title-bar p {
   margin-left: 50px;
@@ -137,7 +138,7 @@ textarea {
   border-radius: 50px;
   margin: 0;
   border: none;
-  background-color: #232328;
+  background-color: var(--bg2);
   position: fixed;
   top: 10px;
   right: 0;
@@ -149,7 +150,7 @@ textarea {
   right: 10px;
 }
 #title-bar #tb-min:hover, #title-bar #tb-max:hover, #title-bar #tb-exit:hover {
-  background-color: #414150;
+  filter: brightness(150%);
 }
 #title-bar #tb-min span, #title-bar #tb-max span, #title-bar #tb-exit span {
   pointer-events: none;
@@ -158,7 +159,7 @@ textarea {
   top: 120px;
 }
 #title-bar #tb-min span {
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--text);
   width: 15px;
 }
 #title-bar #tb-max {
@@ -167,16 +168,17 @@ textarea {
 #title-bar #tb-max span {
   width: 11px;
   height: 11px;
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--text);
 }
 #title-bar #tb-exit:hover {
-  background-color: #ff5082;
+  background-color: var(--accent1);
+  filter: brightness(100%);
 }
 
 #tb-exit span, .close span {
   height: 20px;
   transform: rotate(45deg);
-  border-left: 1px solid #f0f0f0;
+  border-left: 1px solid var(--text);
   image-rendering: pixelated;
 }
 #tb-exit span:nth-child(2), .close span:nth-child(2) {
@@ -187,7 +189,7 @@ textarea {
   content: " ";
   height: 15px;
   width: 1px;
-  background-color: white;
+  background-color: var(--text);
 }
 #tb-exit:before, .close:before {
   transform: rotate(45deg);
@@ -209,16 +211,19 @@ textarea {
 }
 #sidebar div {
   padding: 0.5em 1em;
-  color: #ff5082;
-  border-right: 3px solid #ff5082;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--text);
+  border-right: 3px solid transparent;
+  border-color: var(--text);
+  opacity: 0.9;
 }
 #sidebar div.active {
-  color: #f0f0f0;
-  border-color: #f0f0f0;
+  color: var(--accent1);
+  border-color: var(--accent1);
+  opacity: 1;
 }
 #sidebar div a {
   text-decoration: none;
@@ -249,13 +254,16 @@ textarea {
   margin-right: 4px;
 }
 
+#customization > div {
+  display: inline-block;
+}
+
 body, html {
   font-family: sans-serif;
-  color: #f0f0f0;
   padding: 0;
   margin: 0;
   overflow: hidden;
-  background-color: rgba(50, 50, 55, 0.8);
+  background-color: rgba(var(--bg1), 0.8);
 }
 
 h3 {
@@ -264,20 +272,22 @@ h3 {
 
 code {
   padding: 1em;
-  background-color: #232328;
+  background-color: var(--bg2);
 }
 
 button {
   cursor: pointer;
   background-color: transparent;
-  border: 1px solid #f0f0f0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--text);
   padding: 1em;
-  color: #f0f0f0;
   border-radius: 5em;
+  color: var(--text);
 }
 button:hover {
-  background-color: #f0f0f0;
-  color: #232328;
+  background-color: var(--text);
+  color: var(--text-invert);
 }
 
 input {
@@ -295,11 +305,22 @@ input:focus, button:focus {
   height: calc(100vh - 50px);
   margin-top: 50px;
   width: calc(100% - 10em - 70px);
-  background-color: transparent;
   box-sizing: border-box;
+  color: var(--text);
   padding: 2em;
   padding-top: 0;
   margin-left: 10em;
+}
+#main:before {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg1);
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  opacity: 0.95;
 }
 
 br ~ br {

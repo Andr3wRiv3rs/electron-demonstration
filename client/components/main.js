@@ -6,9 +6,9 @@ const {
 
 const currentWindow = getCurrentWindow()
 
-const theme = require('./theme')
-
 module.exports = new Vue({
+    computed: require('./default').computed,
+
     el: '#main',
     
     components: {
@@ -17,6 +17,7 @@ module.exports = new Vue({
         saving: require('./saving'),
         usermedia: require('./usermedia'),
         graph: require('./graph'),
+        customization: require('./customization'),
     },
 
     data () {
@@ -25,13 +26,7 @@ module.exports = new Vue({
             formText: 'Hello World!',
             bounds: currentWindow.getBounds(),
             page: 'protocol',
-            currentWindow,
-
-            styles: {
-                color: theme.colors.text,
-                backgroundColor: theme.colors.bg1,
-                borderColor: theme.colors.text
-            },
+            currentWindow
         }
     },
 
@@ -42,7 +37,7 @@ module.exports = new Vue({
 
         setPage (page) {
             Vue.set(this, 'page', page)
-        }
+        },
     },
 
     mounted () {
@@ -54,5 +49,7 @@ module.exports = new Vue({
         currentWindow.on('resize', event => {
             Vue.set(this, 'bounds', event.sender.getBounds())
         })
+
+        window.store = this.$store
     }
 })

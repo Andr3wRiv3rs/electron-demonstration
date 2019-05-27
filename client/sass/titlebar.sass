@@ -1,10 +1,10 @@
 #title-bar-pad
     height: 50px
     position: fixed
-    width: calc(100vw - 15em - 70px)
-    background-color: transparent
+    width: calc(100vw - 10em - 70px)
     top: 0
-    left: 15em
+    left: 10em
+    z-index: -1
 
 #title-bar
     height: 46px
@@ -24,6 +24,7 @@
     -webkit-user-select: none
     -webkit-app-region: drag
     z-index: 1
+    color: var(--text)
 
     p
         margin-left: 50px
@@ -56,7 +57,7 @@
         border-radius: 50px
         margin: 0
         border: none
-        background-color: $darkgray
+        background-color: var(--bg2)
         position: fixed
         top: 10px
         right: 0
@@ -68,7 +69,7 @@
         right: 10px
 
         &:hover
-            background-color: rgb(65,65,80)
+            filter: brightness(150%)
 
         span
             pointer-events: none
@@ -77,7 +78,7 @@
         top: 120px
 
         span
-            border-bottom: 1px solid $white
+            border-bottom: 1px solid var(--text)
             width: 15px
 
     #tb-max
@@ -86,18 +87,19 @@
         span
             width: 11px
             height: 11px
-            border: 1px solid $white
+            border: 1px solid var(--text)
 
     #tb-exit
         &:hover
-            background-color: $red
+            background-color: var(--accent1)
+            filter: brightness(100%)
 
 #tb-exit, .close
 
     span
         height: 20px
         transform: rotate(45deg)
-        border-left: 1px solid $white
+        border-left: 1px solid var(--text)
         image-rendering: pixelated
 
     span:nth-child(2)
@@ -108,7 +110,7 @@
         content: ' '
         height: 15px
         width: 1px
-        background-color: white
+        background-color: var(--text)
 
     &:before
         transform: rotate(45deg)

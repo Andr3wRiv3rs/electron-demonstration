@@ -7,9 +7,12 @@
     <title>electron-demonstration</title>
     <link rel="stylesheet" href="main.css" />
     <script src="vue.min.js"></script>
+    <script src="vuex.min.js"></script>
 </head>
 <body>
-    <div id="title-bar">
+    <div id="title-bar" :style="vars">
+        <div id="title-bar-pad"></div>
+
         <p>electron-demonstration</p>
 
         <div 
@@ -32,7 +35,7 @@
         ></div>
     </div>
 
-    <div id="main" :style="styles">
+    <div id="main" :style="vars">
         <div id="sidebar">
             <div 
                 v-for="i in [
@@ -43,6 +46,7 @@
                     'saving',
                     'User Media',
                     'graph',
+                    'customization',
                 ]"
                 @click="setPage(i)"
                 href="#"
@@ -113,6 +117,8 @@
         <usermedia v-show="page === 'User Media'"></usermedia>
 
         <graph v-if="page === 'graph'"></graph>
+
+        <customization v-if="page === 'customization'"></customization>
     </div>
 
     <script src="app.js"></script>

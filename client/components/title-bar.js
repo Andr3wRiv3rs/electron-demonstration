@@ -7,6 +7,8 @@ const {
 const currentWindow = getCurrentWindow()
 
 module.exports = new Vue({
+    computed: require('./default').computed,
+    
     el: '#title-bar',
 
     data () {

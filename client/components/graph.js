@@ -2,6 +2,8 @@ const { mem } = require('systeminformation')
 const os_utils = require('os-utils')
 
 module.exports = Vue.component('graph', {
+    computed: require('./default').computed,
+
     data () {
         return {
             ram: {
@@ -59,7 +61,7 @@ module.exports = Vue.component('graph', {
             memoryContext.putImageData(memoryContext.getImageData(2, 0, memory.width-2, memory.height), 0, 0)
             memoryContext.clearRect(memory.width-2, 0, 2, memory.height)
 
-            memoryContext.strokeStyle = 'rgb(255,80,130)'
+            memoryContext.strokeStyle = this.theme.colors['accent1']
 
             memoryContext.beginPath()
             memoryContext.moveTo(memory.width-2, memory.height - (memory.height/100) * ram.percentage.last)
@@ -76,13 +78,13 @@ module.exports = Vue.component('graph', {
             cpuContext.putImageData(cpuContext.getImageData(2, 0, cpu.width-2, cpu.height), 0, 0)
             cpuContext.clearRect(cpu.width-2, 0, 2, cpu.height)
 
-            cpuContext.strokeStyle = 'cyan'
+            cpuContext.strokeStyle = this.theme.colors['accent2']
 
             cpuContext.beginPath()
             cpuContext.moveTo(cpu.width-2, cpu.height - (cpu.height/100) * this.cpu.last)
             cpuContext.lineTo(cpu.width, cpu.height - (cpu.height/100) * cpuUsage)
             cpuContext.stroke()
-        }, 1000/20)
+        }, 1000/10)
 
         window.cpuUsage = os_utils.cpuUsage
     },
@@ -92,7 +94,7 @@ module.exports = Vue.component('graph', {
             <h1>Performance Graph</h1>
 
             <h3>CPU</h3>
-            <p>{{cpu.current}}/100%</p>
+            <p>{{cpu.current}}%/100%</p>
             <canvas 
                 ref="cpu"
                 style="
@@ -102,7 +104,7 @@ module.exports = Vue.component('graph', {
                 width="640" 
                 height="160"
             ></canvas>
-            
+
             <h3>Memory</h3>
             <p>{{ ram.used }}GB/{{ ram.total }}GB ({{ ram.free }}GB free)</p>
             <canvas 
